@@ -25,4 +25,12 @@ class ShoppingCart
     total_number_of_products >= @capacity
   end
 
+  def products_by_category(category)
+    products_by_category = @products.group_by do |product|
+      product.category
+    end
+    products_by_category[category]
+
+  end
+
 end
