@@ -30,7 +30,13 @@ class ShoppingCart
       product.category
     end
     products_by_category[category]
+  end
 
+  def details
+    details = {}
+    details[:name] = @name
+    details[:capacity] = @capacity
+    details
   end
 
 end
