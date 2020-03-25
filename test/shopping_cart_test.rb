@@ -87,5 +87,31 @@ class ProductTest < Minitest::Test
     assert_equal expected_details, cart.details
   end
 
+  def test_calculates_percentage_occupied
+    cart = ShoppingCart.new("King Soopers", "30items")
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+
+    cart.add_product(product1)
+    cart.add_product(product2)
+    cart.add_product(product3)
+  end
+
+  def test_sorts_products_by_quantity
+    skip
+    cart = ShoppingCart.new("King Soopers", "30items")
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+
+    cart.add_product(product1)
+    cart.add_product(product2)
+    cart.add_product(product3)
+
+    assert_equal 43.33, cart.percentage_occupied
+  end
+
+
 
 end #final

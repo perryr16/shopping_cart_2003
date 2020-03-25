@@ -37,6 +37,11 @@ class ShoppingCart
     details[:name] = @name
     details[:capacity] = @capacity
     details
+    #hard coded?
+  end
+
+  def percentage_occupied
+    ((total_number_of_products.to_f / @capacity.to_f) * 100).round(2)
   end
 
 end
